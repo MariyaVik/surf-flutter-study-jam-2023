@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'states/states.dart';
 import 'ui/bottom_content.dart';
+import 'ui/filter_button.dart';
 import 'ui/ticket_card.dart';
 
 class TicketStoragePage extends StatelessWidget {
@@ -13,14 +14,15 @@ class TicketStoragePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Хранение билетов'),
+        actions: const [FilterButton()],
       ),
       body: Consumer<States>(
-        builder: (context, state, _) => state.ticketList.isEmpty
-            ? const Center(child: Text('Здесь пока ничего нет'))
+        builder: (context, state, _) => state.filtred.isEmpty
+            ? Center(child: Text(state.message))
             : ListView.builder(
-                itemCount: state.ticketList.length,
+                itemCount: state.filtred.length,
                 itemBuilder: (context, index) {
-                  return TicketCard(ticket: state.ticketList[index]);
+                  return TicketCard(ticket: state.filtred[index]);
                 }),
       ),
       floatingActionButton: FloatingActionButton.extended(

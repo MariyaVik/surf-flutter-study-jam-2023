@@ -41,14 +41,12 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
               ),
               onChanged: (value) {},
               validator: (value) {
-                // var urlPattern = r"(https?|http)://([-A-Z0-9.]+)\.pdf"; // сложное регулярное выражение ;(
+                var urlPattern = r"(https?|http)://([a-zA-Z0-9_/\.-]*)\.pdf";
                 if (value == null || value.isEmpty) {
                   return 'Поле обязательно для заполнения';
+                } else if (!RegExp(urlPattern).hasMatch(value)) {
+                  return 'Введите корректный URL';
                 }
-
-                // else if (!RegExp(urlPattern).hasMatch(value)) {
-                //   return 'Введите корректный URL';
-                // }
                 return null;
               },
             ),
