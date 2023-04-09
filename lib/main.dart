@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: themeLight,
-        home: const TicketStoragePage(),
+        home: TicketStoragePage(),
       ),
     );
   }
