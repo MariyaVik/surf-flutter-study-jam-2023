@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class Download {
-  int total = 0;
+class Download extends ChangeNotifier {
+  int total = 1;
   int received = 0;
 
   Future download(String url, String filename) async {
@@ -36,6 +36,7 @@ class Download {
       received = rec;
       debugPrint((rec / tot * 100).toStringAsFixed(0) + '%');
       debugPrint('Загружается $rec из $tot');
+      notifyListeners();
     }
   }
 }

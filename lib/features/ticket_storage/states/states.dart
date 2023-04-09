@@ -20,8 +20,6 @@ class States extends ChangeNotifier {
   }
 
   void download(int id, String url, String filename) {
-    // final Ticket currentTicket =
-    //     ticketList.where((element) => element.id == id).toList().first;
     ticketList.where((element) => element.id == id).toList().first.status =
         Status.loading;
     service.download(url, filename).then((value) {
