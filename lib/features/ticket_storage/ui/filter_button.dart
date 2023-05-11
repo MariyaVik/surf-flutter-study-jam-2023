@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/filter.dart';
+import '../domain/models/filter.dart';
 import '../states/states.dart';
 
 class FilterButton extends StatelessWidget {

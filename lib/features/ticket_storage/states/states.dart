@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../models/filter.dart';
-import '../models/status.dart';
-import '../models/ticket.dart';
+import '../domain/models/filter.dart';
+import '../domain/models/status.dart';
+import '../domain/models/ticket.dart';
 import '../services/download.dart';
 
 class States extends ChangeNotifier {

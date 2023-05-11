@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../theme/theme.dart';
-import '../models/category.dart';
-import '../models/ticket.dart';
-import '../states/states.dart';
+import '../domain/box_manager.dart';
 
 class BottomSheetContent extends StatefulWidget {
-  const BottomSheetContent({
-    super.key,
-  });
+  const BottomSheetContent({super.key});
 
   @override
   State<BottomSheetContent> createState() => _BottomSheetContentState();
@@ -57,18 +52,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Ссылка добавлена')),
                   );
-                  String name =
-                      _controller.text.split('/').last.split('.').first;
-                  int id = 0;
-                  if (context.read<States>().ticketList.isNotEmpty) {
-                    id = context.read<States>().ticketList.last.id + 1;
-                  }
-                  context.read<States>().addTicket(Ticket(
-                      id: id,
-                      name: name,
-                      category: Category.plane,
-                      url: _controller.text));
-                  Navigator.of(context).pop();
+                  BoxManager().addTicket(_controller);
                 }
               },
               child: const Text('Добавить'))

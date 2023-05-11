@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:provider/provider.dart';
-import 'package:surf_flutter_study_jam_2023/features/ticket_storage/services/download.dart';
 
 import '../../../theme/theme.dart';
-import '../models/category.dart';
-import '../models/status.dart';
-import '../models/ticket.dart';
+import '../domain/models/category.dart';
+import '../domain/models/status.dart';
+import '../domain/models/ticket.dart';
+import '../services/download.dart';
 import '../states/states.dart';
 
 class TicketCard extends StatelessWidget {
